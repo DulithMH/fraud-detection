@@ -1,0 +1,15 @@
+scikit-learn>=1.1
+pandas>=1.5
+numpy>=1.23
+joblib
+jupyter
+jupyterlab
+nbconvert
+jupytext
+pytest
+black
+flake8
+mypy
+fastapi
+uvicorn
+shap

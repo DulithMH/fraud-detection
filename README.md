@@ -1,28 +1,40 @@
-# 🛡️ Financial Fraud Detection Model
+# fraud-detection
 
-This project implements a machine learning pipeline to identify fraudulent transactions with high precision.
+This repository contains an ensemble-based RandomForest classifier tailored for detecting fraudulent activity in highly imbalanced financial datasets.
 
-## 📊 Performance Summary
-After hyperparameter tuning, the Random Forest model achieved:
-- **Precision:** 0.90 (Only 10% false alarm rate)
-- **Recall:** 0.86 (Caught 86% of all fraud cases)
-- **F1-Score:** 0.88
+## Goals
+- Reproducible training and evaluation
+- Clear API for inference
+- CI and tests to ensure correctness
+- Example deployment using FastAPI
 
-## 🛠️ Technical Implementation
-1. **Feature Scaling:** Used `StandardScaler` to normalize numerical data.
-2. **Model Tuning:** Optimized via `RandomizedSearchCV` (30 total fits).
-3. **Best Parameters:** - `n_estimators`: 200
-   - `max_depth`: 20
-   - `bootstrap`: False
+## Quickstart
+1. Create environment:
+   ```bash
+   python -m venv .venv
+   source .venv/bin/activate
+   pip install -r requirements.txt
+   ```
+2. Run tests:
+   ```bash
+   pytest
+   ```
+3. Train a model (example - replace with your data pipeline):
+   ```python
+   from fraud_detection.model import train, save_model
+   # X, y = load your data
+   clf = train(X, y)
+   save_model(clf, "models/rf.joblib")
+   ```
+4. Serve the model with FastAPI:
+   ```bash
+   uvicorn app.main:app --reload
+   ```
 
-## 📈 Key Insights
-The model's top predictors were visualized using Feature Importance. 
-*(Optional: Insert your image here using: ![Feature Importance](./feature_importance.png))*
+## Contributing
+- Open issues for bugs or feature requests.
+- Follow the coding style (Black + flake8).
+- Add tests for new functionality.
 
-## 🚀 How to Run
-1. Clone the repo.
-2. Install dependencies: `pip install -r requirements.txt`
-3. Open the notebook in `notebooks/` to view the full pipeline.
-
-
-
+## License
+Add a license file (e.g. MIT) to clarify usage.
